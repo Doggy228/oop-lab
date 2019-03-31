@@ -24,7 +24,7 @@ public class Lab1 {
         for (double i = (double) a; i <= n; i++) {
             for (double j = (double) b; j <= m; j++) {
                 if (j == 0 || (i + C == 0)) {
-                    log.error("Invalid variables");
+                    log.error("Invalid variable");
                     System.exit(1);
                 }
                 S += ((i / j) / (i + C));
