@@ -8,11 +8,17 @@ public class Device {
     private int electroRad;
     private String name;
 
-    public Device(int id){
+    public Device(int id) {
+        if(id<=0) throw new BadParamDeviceException(null, "id", ""+id);
         this.id = id;
     }
 
     public Device(int id, String devType, int power, boolean enabled, int electroRad, String name) {
+        if(id<=0) throw new BadParamDeviceException(null, "id", ""+id);
+        if(devType==null || devType.isEmpty()) throw new BadParamDeviceException(null, "devType", ""+devType);
+        if(power<=0) throw new BadParamDeviceException(null, "power", ""+power);
+        if(electroRad<=0) throw new BadParamDeviceException(null, "electroRad", ""+electroRad);
+        if(name==null || name.isEmpty()) throw new BadParamDeviceException(null, "name", ""+name);
         this.id = id;
         this.devType = devType;
         this.power = power;
@@ -26,6 +32,7 @@ public class Device {
     }
 
     public void setId(int id) {
+        if(id<=0) throw new BadParamDeviceException(this, "id", ""+id);
         this.id = id;
     }
 
@@ -33,15 +40,12 @@ public class Device {
         return devType;
     }
 
-    public void setDevType(String devType) {
-        this.devType = devType;
-    }
-
     public int getPower() {
         return power;
     }
 
     public void setPower(int power) {
+        if(power<=0) throw new BadParamDeviceException(this, "power", ""+power);
         this.power = power;
     }
 
@@ -58,6 +62,7 @@ public class Device {
     }
 
     public void setElectroRad(int electroRad) {
+        if(electroRad<=0) throw new BadParamDeviceException(this, "electroRad", ""+electroRad);
         this.electroRad = electroRad;
     }
 
@@ -66,6 +71,7 @@ public class Device {
     }
 
     public void setName(String name) {
+        if(name==null || name.isEmpty()) throw new BadParamDeviceException(this, "name", ""+name);
         this.name = name;
     }
 

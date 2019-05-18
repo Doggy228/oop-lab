@@ -3,7 +3,7 @@ package org.kpi.fiot.io8322.oop.lab6_2;
 import java.util.*;
 
 public class DeviceGroup {
-    Map<Device, Device> elements;
+    private Map<Device, Device> elements;
 
     public DeviceGroup() {
         elements = new HashMap<>();

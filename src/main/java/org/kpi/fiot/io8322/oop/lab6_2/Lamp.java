@@ -5,6 +5,7 @@ public class Lamp extends Device {
 
     public Lamp(int id, int power, boolean enabled, int electroRad, String name, int countBulb) {
         super(id, "lamp", power, enabled, electroRad, name);
+        if(countBulb<1) throw new BadParamDeviceException(null, "countBulb", ""+countBulb);
         this.countBulb = countBulb;
     }
 
@@ -13,6 +14,7 @@ public class Lamp extends Device {
     }
 
     public void setCountBulb(int countBulb) {
+        if(countBulb<1) throw new BadParamDeviceException(this, "countBulb", ""+countBulb);
         this.countBulb = countBulb;
     }
 
